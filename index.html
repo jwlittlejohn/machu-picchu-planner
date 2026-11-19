@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five ways to reach Machu Picchu: Peru trip planner, August 2027</title>
+<meta name="description" content="A side-by-side planner for six adults comparing five small-group Peru trips in August 2027: where each goes, how high you sleep, and what it costs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --stone: #EEF0EC;        /* page: pale Inca limestone */
+  --stone-2: #E2E5DF;      /* recessed panels */
+  --wall: #FBFCFA;         /* raised surfaces */
+  --ink: #1B2622;          /* primary text */
+  --ink-2: #47554F;        /* secondary text */
+  --ink-3: #6B7872;        /* muted text, axis labels */
+  --rule: #CDD2CB;
+  --accent: #A3264B;       /* cochineal red, the dye of Andean weaving */
+  --accent-ink: #FFFFFF;
+  --coast: #eb6834;
+  --jungle: #1baf7a;
+  --highland: #eda100;
+  --lake: #2a78d6;
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body: "Literata", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --stone: #161D1B;
+    --stone-2: #1F2826;
+    --wall: #222C29;
+    --ink: #EEF0EC;
+    --ink-2: #C2CAC5;
+    --ink-3: #96A19B;
+    --rule: #37433F;
+    --accent: #E88AA5;
+    --accent-ink: #1B2622;
+    --coast: #d95926;
+    --jungle: #199e70;
+    --highland: #c98500;
+    --lake: #3987e5;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--stone);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+h1, h2, h3, h4 { font-family: var(--display); line-height: 1.08; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.6rem, 8vw, 4.75rem); font-weight: 800; letter-spacing: -0.03em; max-width: 18ch; }
+h2 { font-size: clamp(1.75rem, 5vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; }
+h3 { font-size: 1.375rem; font-weight: 700; }
+h4 { font-size: 1.0625rem; font-weight: 700; }
+p { margin: 0 0 1em; max-width: 66ch; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.num { font-family: var(--display); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-2); }
+.small { font-size: 0.9375rem; }
+
+header.top { padding: 2.5rem 0 1.5rem; }
+header.top .lede { font-size: 1.1875rem; margin-top: 1.25rem; color: var(--ink-2); max-width: 46ch; }
+nav.jump { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin-top: 1.25rem; font-family: var(--display); font-weight: 500; }
+
+section.block { padding: 3rem 0; border-top: 1px solid var(--rule); }
+section.block > .wrap > h2 { margin-bottom: 0.75rem; }
+section.block > .wrap > .intro { color: var(--ink-2); margin-bottom: 1.75rem; }
+
+/* ---------- trip picker ---------- */
+.picker { display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.25rem 1.25rem 0.75rem; margin: 0 -1.25rem; scrollbar-width: thin; }
+.picker button {
+  flex: 0 0 auto; font: 500 1rem/1.2 var(--display); text-align: left;
+  padding: 0.7rem 0.95rem; border-radius: 0.6rem; cursor: pointer;
+  background: transparent; color: var(--ink); border: 1.5px solid var(--rule);
+}
+.picker button span { display: block; font-size: 0.8125rem; color: var(--ink-3); margin-top: 0.15rem; }
+.picker button[aria-pressed="true"] { background: var(--ink); color: var(--stone); border-color: var(--ink); }
+.picker button[aria-pressed="true"] span { color: var(--stone-2); }
+
+/* ---------- altitude terraces ---------- */
+.terrace-card { background: var(--wall); border-radius: 1rem; padding: 1.25rem 1.25rem 1rem; margin-top: 0.5rem; }
+.terrace-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; align-items: baseline; }
+.terrace-head p { margin: 0; color: var(--ink-2); font-size: 0.9375rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; list-style: none; padding: 0; margin: 0.75rem 0 0; font-size: 0.875rem; color: var(--ink-2); }
+.legend li { display: flex; align-items: center; gap: 0.4rem; }
+.sw { width: 0.75rem; height: 0.75rem; border-radius: 3px; display: inline-block; flex: 0 0 auto; }
+.sw.coast, .bar.coast { background: var(--coast); }
+.sw.jungle, .bar.jungle { background: var(--jungle); }
+.sw.highland, .bar.highland { background: var(--highland); }
+.sw.lake, .bar.lake { background: var(--lake); }
+
+.plot { position: relative; margin-top: 1rem; padding-left: 2.6rem; }
+.plot-area { position: relative; height: 15rem; }
+.grid-line { position: absolute; left: 0; right: 0; border-top: 1px solid var(--rule); }
+.grid-line span { position: absolute; left: -2.6rem; top: -0.6em; width: 2.2rem; text-align: right; font: 500 0.75rem/1.2 var(--display); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.grid-line.ref { border-top: 2px dashed var(--ink); z-index: 2; pointer-events: none; }
+.bars { position: absolute; inset: 0; display: grid; gap: 2px; align-items: end; clip-path: inset(-5px); } /* keeps the tall hit targets inside the plot */
+.bar { border: 0; padding: 0; min-height: 4px; border-radius: 4px 4px 0 0; cursor: pointer; position: relative; }
+.bar::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; top: -15rem; } /* tall hit target */
+.bar[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--wall), 0 0 0 4px var(--ink); z-index: 1; }
+.runs, .nights { display: grid; gap: 2px; }
+.runs { margin-top: 0.4rem; }
+.runs span { font: 500 0.75rem/1.15 var(--display); color: var(--ink); text-align: center; white-space: nowrap; border-top: 2px solid var(--rule); padding-top: 0.25rem; display: flex; justify-content: center; }
+.runs span:nth-child(even) { padding-top: 1.2rem; }
+.runs { min-height: 2.2rem; }
+.nights span { font: 500 0.6875rem/1.3 var(--display); color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; }
+.axis-note { font: 500 0.75rem/1.3 var(--display); color: var(--ink-3); margin: 0.35rem 0 0; }
+.readout { margin: 0.9rem 0 0; padding: 0.75rem 0.9rem; background: var(--stone-2); border-radius: 0.6rem; font-size: 0.9375rem; min-height: 4.2em; }
+.readout strong { font-family: var(--display); }
+.approx { font-size: 0.875rem; color: var(--ink-2); margin: 0.6rem 0 0; }
+
+/* ---------- trip detail ---------- */
+.trip { display: grid; gap: 2rem; margin-top: 2rem; }
+@media (min-width: 52rem) { .trip { grid-template-columns: 1.15fr 0.85fr; gap: 3rem; } }
+.trip h3 { font-size: clamp(1.6rem, 4.5vw, 2.1rem); font-weight: 800; letter-spacing: -0.02em; }
+.trip .by { color: var(--ink-2); margin: 0.35rem 0 1rem; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem 1.25rem; margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+@media (min-width: 30rem) { .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.facts div { font-size: 0.875rem; color: var(--ink-2); line-height: 1.3; }
+.facts b { display: block; font: 700 1.25rem/1.2 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+.trip ul { padding-left: 1.1rem; margin: 0.5rem 0 1.25rem; }
+.trip li { margin-bottom: 0.45rem; max-width: 60ch; }
+.days { list-style: none; padding: 0; margin: 0.75rem 0 0; counter-reset: none; }
+.days li { display: grid; grid-template-columns: 3.4rem 1fr; gap: 0.75rem; padding: 0.55rem 0; border-top: 1px solid var(--rule); margin: 0; font-size: 0.9375rem; line-height: 1.45; }
+.days li b { font: 700 0.875rem/1.5 var(--display); color: var(--ink-2); }
+.days strong { font-family: var(--display); }
+
+/* ---------- compare table ---------- */
+.scroll { overflow-x: auto; margin: 0 -1.25rem; padding: 0 1.25rem; }
+table { border-collapse: collapse; width: 100%; min-width: 46rem; font-size: 0.9375rem; line-height: 1.35; }
+th, td { text-align: left; vertical-align: top; padding: 0.7rem 0.9rem 0.7rem 0; border-top: 1px solid var(--rule); }
+thead th { font: 700 1rem/1.2 var(--display); border-top: 0; vertical-align: bottom; }
+thead th small { display: block; font-weight: 500; color: var(--ink-3); font-size: 0.8125rem; }
+tbody th { font: 500 0.875rem/1.35 var(--display); color: var(--ink-2); width: 9.5rem; position: sticky; left: -1.25rem; background: var(--stone); padding-left: 1.25rem; }
+td.n { font-family: var(--display); font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* ---------- places ---------- */
+.places { display: grid; gap: 0; }
+.place { display: grid; gap: 0.5rem 2.5rem; padding: 1.75rem 0; border-top: 1px solid var(--rule); }
+.place:first-child { border-top: 0; padding-top: 0.5rem; }
+@media (min-width: 52rem) { .place { grid-template-columns: 17rem 1fr; } }
+.place .alt { font: 800 2.4rem/1 var(--display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; margin-top: 0.4rem; }
+.place .alt small { font-size: 1rem; font-weight: 500; color: var(--ink-2); letter-spacing: 0; }
+.place .tag { display: inline-flex; align-items: center; gap: 0.4rem; font: 500 0.875rem/1.2 var(--display); color: var(--ink-2); margin-top: 0.5rem; }
+.place .see { font-size: 0.9375rem; color: var(--ink-2); margin: 0.25rem 0 0; }
+.place .see b { font-family: var(--display); color: var(--ink); }
+.place p { margin-bottom: 0.6rem; }
+
+/* ---------- cost ---------- */
+.controls { display: grid; gap: 1rem 1.5rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); margin-bottom: 1.75rem; }
+.controls label { font: 500 0.875rem/1.3 var(--display); color: var(--ink-2); display: block; }
+.controls input {
+  display: block; width: 100%; margin-top: 0.35rem; padding: 0.6rem 0.7rem;
+  font: 700 1.125rem/1.2 var(--display); font-variant-numeric: tabular-nums;
+  color: var(--ink); background: var(--wall); border: 1.5px solid var(--rule); border-radius: 0.5rem;
+}
+.costs { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; }
+.costs li { display: grid; gap: 0.3rem; }
+.costs .row { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+.costs .name { font: 700 1.0625rem/1.2 var(--display); }
+.costs .tot { font: 800 1.25rem/1.2 var(--display); font-variant-numeric: tabular-nums; }
+.costs .tot small { font-weight: 500; font-size: 0.875rem; color: var(--ink-2); }
+.track { height: 0.9rem; }
+.fill { height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 4px; transition: width 0.25s ease; }
+@media (prefers-reduced-motion: reduce) { .fill { transition: none; } }
+.costs .parts { font-size: 0.875rem; color: var(--ink-2); }
+
+/* ---------- decide ---------- */
+.ask { border: 0; padding: 0; margin: 0 0 1.25rem; }
+.ask legend { font: 700 1.0625rem/1.3 var(--display); padding: 0; margin-bottom: 0.5rem; }
+.opts { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.opts label { cursor: pointer; }
+.opts input { position: absolute; opacity: 0; }
+.opts span { display: block; padding: 0.55rem 0.9rem; border: 1.5px solid var(--rule); border-radius: 2rem; font: 500 0.9375rem/1.2 var(--display); }
+.opts input:checked + span { background: var(--ink); color: var(--stone); border-color: var(--ink); }
+.opts input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+.verdict { background: var(--accent); color: var(--accent-ink); border-radius: 1rem; padding: 1.4rem 1.4rem 1.2rem; margin-top: 0.5rem; }
+.verdict h3 { font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 800; }
+.verdict p { margin: 0.5rem 0 0; max-width: 58ch; }
+
+.two { display: grid; gap: 2rem; }
+@media (min-width: 52rem) { .two { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+.check { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+.check li { margin-bottom: 0.6rem; max-width: 60ch; }
+footer { padding: 2.5rem 0 4rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 0.9375rem; }
+footer ul { padding-left: 1.2rem; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <h1>Five ways to reach Machu Picchu</h1>
+    <p class="lede">Six adults, August 2027, flying from Toronto and Ottawa. Pick a trip to see where it goes, how high you sleep each night, and what makes it different.</p>
+    <nav class="jump" aria-label="Sections">
+      <a href="#trips">The trips</a>
+      <a href="#compare">Side by side</a>
+      <a href="#places">The places</a>
+      <a href="#cost">Cost for six</a>
+      <a href="#decide">Help us decide</a>
+      <a href="#booking">Before booking</a>
+    </nav>
+  </div>
+</header>
+
+<section class="block" id="trips">
+  <div class="wrap">
+    <h2>The trips</h2>
+    <p class="intro">Three from Intrepid, two from G Adventures. All are small-group tours with a leader, internal flights and a guided visit to Machu Picchu.</p>
+
+    <div class="picker" id="picker" role="group" aria-label="Choose a trip"></div>
+
+    <div class="terrace-card">
+      <div class="terrace-head">
+        <h3 id="terraceTitle">Where you sleep, night by night</h3>
+        <p>Height of each bar is the altitude of that night's bed.</p>
+      </div>
+      <ul class="legend" aria-label="Bar colours">
+        <li><i class="sw coast"></i>Pacific coast</li>
+        <li><i class="sw jungle"></i>Amazon lowlands</li>
+        <li><i class="sw highland"></i>Andes</li>
+        <li><i class="sw lake"></i>Lake Titicaca</li>
+      </ul>
+      <div class="plot">
+        <div class="plot-area" id="plotArea"></div>
+        <div class="runs" id="runs" aria-hidden="true"></div>
+        <div class="nights" id="nights" aria-hidden="true"></div>
+        <p class="axis-note">Night of the trip. Altitude in metres. Dashed line: about 2,500 m, where most people start to feel the altitude.</p>
+      </div>
+      <p class="readout" id="readout" aria-live="polite"></p>
+      <p class="approx" id="approx" hidden></p>
+    </div>
+
+    <article class="trip" id="tripDetail" aria-live="polite"></article>
+  </div>
+</section>
+
+<section class="block" id="compare">
+  <div class="wrap">
+    <h2>Side by side</h2>
+    <p class="intro">Prices are per person in Canadian dollars for August 2027 departures, before flights from Canada.</p>
+    <div class="scroll" tabindex="0" role="region" aria-label="Comparison table, scrolls sideways">
+      <table id="compareTable"></table>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="places">
+  <div class="wrap">
+    <h2>The places</h2>
+    <p class="intro">Seven stops across four very different landscapes. August is the dry season in the Andes and the Amazon, and midwinter on the coast.</p>
+    <div class="places" id="placeList"></div>
+  </div>
+</section>
+
+<section class="block" id="cost">
+  <div class="wrap">
+    <h2>Cost for six</h2>
+    <p class="intro">Tour price plus flights from Canada, plus a flight back to Lima when the tour ends in Cusco. Change the numbers as real quotes come in.</p>
+    <div class="controls">
+      <label>Travellers<input type="number" id="cPeople" min="1" max="16" value="6" inputmode="numeric"></label>
+      <label>Flights from Canada, each<input type="number" id="cFlight" min="0" step="50" value="1000" inputmode="numeric"></label>
+      <label>Cusco to Lima flight, each<input type="number" id="cHop" min="0" step="10" value="150" inputmode="numeric"></label>
+    </div>
+    <ol class="costs" id="costList"></ol>
+    <p class="small muted" style="margin-top:1.5rem">Not counted: meals that aren't included, tips, travel insurance, optional activities and extra nights in Lima. Premium Peru uses the $7,061 price; the Aug 7 departure is $7,623.</p>
+  </div>
+</section>
+
+<section class="block" id="decide">
+  <div class="wrap">
+    <h2>Help us decide</h2>
+    <p class="intro">Two questions settle most of it.</p>
+    <div class="two">
+      <form id="decideForm">
+        <fieldset class="ask">
+          <legend>Does anyone want to hike to Machu Picchu?</legend>
+          <div class="opts">
+            <label><input type="radio" name="trek" value="no" checked><span>No, train for everyone</span></label>
+            <label><input type="radio" name="trek" value="day"><span>A one-day hike would do</span></label>
+            <label><input type="radio" name="trek" value="multi"><span>Yes, a multi-day trek</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="ask">
+          <legend>What matters most?</legend>
+          <div class="opts">
+            <label><input type="radio" name="pri" value="cost" checked><span>Keeping the cost down</span></label>
+            <label><input type="radio" name="pri" value="mid"><span>A balance</span></label>
+            <label><input type="radio" name="pri" value="lux"><span>The best hotels</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="booking">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <h2>Getting there</h2>
+        <ul class="check">
+          <li><strong>Toronto:</strong> Air Canada and Air Transat both fly nonstop to Lima, about eight hours. Air Canada's Toronto flights look seasonal, starting in October, so August nonstops are likely Air Transat.</li>
+          <li><strong>Ottawa:</strong> Air Canada is making Montréal to Lima year-round from summer 2027, so Ottawa to Montréal to Lima is a clean one-stop.</li>
+          <li><strong>Budget:</strong> August round trips from Toronto average about $970. Allow $1,000 to $1,200 each, more from Ottawa.</li>
+          <li><strong>One-way endings:</strong> three of the five trips end in Cusco. Either book a Cusco to Lima flight to meet the flight home, or add a night in Lima.</li>
+          <li>Summer 2027 schedules weren't final when this was written. Check flight days against the tour's start date before paying a deposit.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Before booking</h2>
+        <ul class="check">
+          <li><strong>Sale deadlines:</strong> G Adventures ends December 4, Intrepid December 6. G's largest discount covers departures only to April 30, 2027, so ask what applies in August.</li>
+          <li><strong>Six seats on one departure</strong> is the real constraint. Intrepid groups stop at 12. Phone rather than booking online, so all six are held together, and ask about a group rate.</li>
+          <li><strong>Confirm the August price</strong> for the two G Adventures trips on the Canadian site. The figures here are converted from US list prices.</li>
+          <li><strong>Trekkers:</strong> Inca Trail permits are limited and not guaranteed. Book early and name the trekkers when booking.</li>
+          <li><strong>Health:</strong> see a travel clinic a couple of months ahead about altitude and the Amazon. Travel insurance is compulsory on G Adventures.</li>
+          <li><strong>Passports</strong> are needed for Machu Picchu tickets and Inca Trail permits. Use the same passport you'll travel on.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Compiled November 18, 2026. Intrepid prices are the August 2027 sale prices quoted to our group. G Adventures prices are US list prices converted at about 1.35, the rate implied by Canadian reseller listings, and are estimates until confirmed. Itineraries for the two G Adventures trips are outlines: the night-by-night order is inferred from the tour pages.</p>
+    <ul>
+      <li><a href="https://www.intrepidtravel.com/ca/peru/classic-peru-176365">Intrepid: Classic Peru</a></li>
+      <li><a href="https://www.intrepidtravel.com/ca/peru/premium-peru-174955">Intrepid: Premium Peru</a></li>
+      <li><a href="https://www.intrepidtravel.com/ca/peru/inca-encounter-174299">Intrepid: Inca Encounter</a></li>
+      <li><a href="https://www.gadventures.com/trips/amazon-to-andes-with-machu-picchu-by-train/SPLP/">G Adventures: Amazon to Andes with Machu Picchu by Train</a></li>
+      <li><a href="https://www.gadventures.com/trips/journeys-machu-picchu-and-the-amazon/8250/">G Adventures: National Geographic Journeys, Machu Picchu and the Amazon</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ---------- places (altitude in metres, region drives bar colour) ----------
+const PLACES = {
+  lima:   { name: "Lima", short: "Lima", alt: 150, region: "coast", regionName: "Pacific coast",
+            why: "The capital sits on cliffs above the Pacific. The old centre is a grid of colonial squares, carved wooden balconies and the San Francisco monastery, whose catacombs hold the bones of tens of thousands of people. Miraflores and Barranco, along the clifftop, are where most visitors stay and eat.",
+            look: "This is one of the best food cities anywhere: ceviche at lunch, never dinner, is the local rule. The Larco Museum has the finest pre-Columbian collection in the country.",
+            august: "Midwinter. Cool, around 15 to 19°C, and overcast most days under the coastal mist." },
+  amazon: { name: "Amazon lodge, near Puerto Maldonado", short: "Amazon", alt: 200, region: "jungle", regionName: "Amazon lowlands",
+            why: "A short flight drops you from the Andes into lowland rainforest in the Madre de Dios region. From the river town of Puerto Maldonado you continue by boat to a lodge where the day runs on the forest's clock: out at dawn, back for the midday heat, out again after dark.",
+            look: "Oxbow lakes with giant river otters and hoatzins, macaws overhead, caimans by torchlight from a canoe, and night walks for frogs, tarantulas and insects. Guides are naturalists and make the difference.",
+            august: "Dry season: lower rivers, fewer mosquitoes, hot and humid. Occasional cold snaps roll in from the south for a day or two." },
+  cusco:  { name: "Cusco", short: "Cusco", alt: 3400, region: "highland", regionName: "Andes",
+            why: "The Inca capital, and the place where the two histories are stacked on top of each other. Spanish churches and mansions stand on Inca walls whose stones fit without mortar. Qorikancha, the Sun Temple, sits under the Santo Domingo convent. Above town, Sacsayhuamán is built from boulders the size of trucks.",
+            look: "The Plaza de Armas, the San Pedro market, and the steep lanes of San Blas. Give the first afternoon to walking slowly and drinking water.",
+            august: "Clear, sunny days around 19°C and nights near freezing. Peak season, so it is busy." },
+  valley: { name: "Sacred Valley and Ollantaytambo", short: "Valley", alt: 2800, region: "highland", regionName: "Andes",
+            why: "The Urubamba River valley between Cusco and Machu Picchu, about 600 metres lower than Cusco and easier on the body. It was the Incas' breadbasket and is still farmed on their terraces.",
+            look: "Pisac's hillside terraces and market. Moray, concentric circular terraces thought to have been used to test crops at different temperatures. The Maras salt pans, thousands of shallow pools worked by local families since before the Incas. Ollantaytambo, a fortress above a town whose streets and water channels are still Inca.",
+            august: "Dry and bright, warmer than Cusco by day." },
+  aguas:  { name: "Aguas Calientes", short: "Aguas", alt: 2040, region: "highland", regionName: "Andes",
+            why: "The small town at the foot of Machu Picchu, reached only by train or on foot. The railway follows the Urubamba as the valley narrows and the dry highlands turn to cloud forest.",
+            look: "Sleeping here matters more than the town itself: it puts you on an early bus up the mountain before the day-trippers arrive from Cusco. There are hot springs and a butterfly garden if you have an afternoon.",
+            august: "Mild and humid, with mist most mornings." },
+  mp:     { name: "Machu Picchu", short: "Machu Picchu", alt: 2430, region: "highland", regionName: "Andes",
+            why: "Built around 1450 for the Inca emperor Pachacuti on a ridge between two peaks, abandoned about a century later, and never found by the Spanish. It came to world attention in 1911. What survives is a complete royal estate: temples, houses, fountains and farming terraces in fitted granite.",
+            look: "The Temple of the Sun, the Intihuatana stone, and the classic view from the guardhouse above the terraces. Trekkers arrive through the Sun Gate. Entry is by timed ticket on a set circuit, so a second visit lets you see a different route and hedges against cloud.",
+            august: "Driest month. Morning mist usually lifts by mid-morning." },
+  puno:   { name: "Puno and Lake Titicaca", short: "Lake", alt: 3810, region: "lake", regionName: "Lake Titicaca",
+            why: "The highest navigable lake in the world, shared with Bolivia, at the far end of a long day's drive across the open high plain. The Uros people live on floating islands they build and rebuild from totora reeds.",
+            look: "A boat out to the Uros islands, then a night with a family in a lakeside farming community: simple rooms, home cooking, and very dark skies.",
+            august: "Strong sun by day, below freezing at night. This is the highest sleeping altitude of any stop." }
+};
+
+// ---------- trips ----------
+const TRIPS = [
+  { id: "classic", op: "Intrepid", name: "Classic Peru", short: "Classic Peru", price: 3227, priceNote: "", days: 9, start: "Lima", end: "Lima",
+    style: "Original", group: 12, meals: "11 meals", dates: "Aug 6 to 14, Aug 13 to 21, Aug 16 to 24",
+    amazon: "No", lake: "Yes, with a homestay", visits: "One", trek: "No", lodging: "Simple hotels, one homestay",
+    url: "https://www.intrepidtravel.com/ca/peru/classic-peru-176365",
+    hook: "The only trip that reaches Lake Titicaca, and the simplest to book flights around.",
+    good: ["A night with a family on Lake Titicaca and a boat to the Uros reed islands. No other option here goes to the lake.",
+           "The drive across the Altiplano, the high plain between Cusco and Puno, is a full day of open country most visitors never see.",
+           "Starts and ends in Lima with both internal flights included, so one return ticket from Canada covers it.",
+           "Machu Picchu entry and guide are in the price."],
+    watch: ["No Amazon.", "Hardest on altitude: straight from sea level to Cusco on day 2, then two nights at 3,810 m.",
+            "One long travel day of about seven and a half hours, partly on public buses.", "Only 11 meals included."],
+    nights: ["lima","cusco","aguas","cusco","cusco","puno","puno","lima"], approx: false,
+    plan: [["Day 1","lima","Welcome meeting and a walking tour of the old centre."],
+           ["Day 2","cusco","Early flight to Cusco. Rest, then an orientation walk."],
+           ["Day 3","aguas","Through the Sacred Valley by private bus, a community visit and lunch, then the train to Aguas Calientes."],
+           ["Day 4","mp","Early bus up for a guided visit, then back to Cusco."],
+           ["Day 5","cusco","Free day."],
+           ["Day 6","puno","The long drive across the Altiplano to Puno."],
+           ["Day 7","puno","Boat to the Uros islands and a night with a local family."],
+           ["Day 8","lima","Bus to Juliaca and the included flight back to Lima."],
+           ["Day 9","lima","Trip ends after breakfast."]] },
+  { id: "premium", op: "Intrepid", name: "Premium Peru", short: "Premium Peru", price: 7061, priceNote: "$7,623 for Aug 7", days: 9, start: "Lima", end: "Cusco",
+    style: "Premium", group: 12, meals: "15 meals", dates: "Aug 7 to 15, Aug 14 to 22, Aug 16 to 24",
+    amazon: "Yes, 2 nights", lake: "No", visits: "Two", trek: "Optional one-day hike, US$465", lodging: "Luxury hotels and Inkaterra lodges",
+    url: "https://www.intrepidtravel.com/ca/peru/premium-peru-174955",
+    hook: "The best version of the trip: two visits to Machu Picchu, the finest lodges, and no wasted days.",
+    good: ["Two visits to Machu Picchu, an afternoon and the next early morning, with a night at the Inkaterra hotel at its foot.",
+           "An Inkaterra jungle lodge in a private cabana, with a canopy walkway, a canoe trip on Lake Sandoval and a night walk.",
+           "Starts low. Two nights in the Amazon come before Cusco, which is gentler than flying straight up.",
+           "Three nights at Palacio del Inca in Cusco, a guided cathedral tour with a historian, and a pachamanca lunch cooked in the ground.",
+           "Everyone follows the same itinerary, so the group stays together throughout."],
+    watch: ["Roughly $2,100 to $2,700 more per person than Inca Encounter.", "Ends in Cusco, so add a flight back to Lima.",
+            "The Aug 7 departure costs more and uses a different Inkaterra lodge, Reserva Amazónica.", "Several lunches and dinners are still your own."],
+    nights: ["lima","amazon","amazon","cusco","cusco","valley","aguas","cusco"], approx: false,
+    plan: [["Day 1","lima","Airport transfer, a walking tour of the centre with the San Francisco catacombs, and a welcome dinner."],
+           ["Day 2","amazon","Fly to Puerto Maldonado, canoe to the lodge, night boat trip."],
+           ["Day 3","amazon","Canoe on Lake Sandoval, canopy walkway, sunset boat ride, night walk."],
+           ["Day 4","cusco","Fly to Cusco. Plaza de Armas, the cathedral and Qorikancha."],
+           ["Day 5","cusco","Free day: cooking class, a short trek or Sacsayhuamán."],
+           ["Day 6","valley","Sacred Valley drive, a community visit and lunch, and the Ollantaytambo ruins."],
+           ["Day 7","mp","Panoramic train to Aguas Calientes and a first visit to Machu Picchu."],
+           ["Day 8","mp","Second visit early in the morning, then train and road back to Cusco."],
+           ["Day 9","cusco","Trip ends after breakfast."]] },
+  { id: "inca", op: "Intrepid", name: "Inca Encounter", short: "Inca Encounter", price: 4955, priceNote: "", days: 10, start: "Lima", end: "Cusco",
+    style: "Comfort", group: 12, meals: "20 meals for trekkers, fewer by train", dates: "Aug 4 to 13, Aug 15 to 24",
+    amazon: "Yes, 2 nights", lake: "No", visits: "One", trek: "Inca Trail, Quarry Trail or train", lodging: "Comfortable hotels, rustic lodge",
+    url: "https://www.intrepidtravel.com/ca/peru/inca-encounter-174299",
+    hook: "Built around a choice: walk to Machu Picchu over several days, or take the train.",
+    good: ["Three ways to arrive. The classic Inca Trail through the Sun Gate, the quieter Quarry Trail with horses carrying the gear, or the train.",
+           "The most remote jungle stay: about three hours up the river by motorised canoe to a thatched eco-lodge.",
+           "A pass to 16 sites around Cusco is included, along with Sacsayhuamán and the Ollantaytambo ruins.",
+           "A mixed group works: walkers and non-walkers split for three days and meet again at Machu Picchu."],
+    watch: ["By train, days 6 and 7 are free days in Cusco while the walkers are on the trail, and trek-day lunches and dinners are for walkers only.",
+            "Walkers camp for up to three nights and cross passes of 4,200 m on the Inca Trail or 4,450 m on the Quarry Trail.",
+            "One visit to Machu Picchu of about two hours.", "Ends in Cusco. Inca Trail permits are not guaranteed."],
+    nights: ["lima","amazon","amazon","cusco","valley","cusco","cusco","aguas","cusco"], approx: false, approxNote: "Shown for the train option. Walkers camp on nights 6 to 8.",
+    plan: [["Day 1","lima","Airport transfer, walking tour, the San Francisco catacombs and the central market."],
+           ["Day 2","amazon","Fly to Puerto Maldonado, then about three hours by canoe to the lodge."],
+           ["Day 3","amazon","Guided jungle walks, morning and night."],
+           ["Day 4","cusco","Canoe back, fly to Cusco, orientation walk."],
+           ["Day 5","valley","Sacsayhuamán, a community visit near Pisac, lunch in Urubamba and the Ollantaytambo ruins."],
+           ["Days 6 to 8","cusco","Walkers set out on the Inca Trail or Quarry Trail. By train: two free days in Cusco, then the train to Aguas Calientes on day 8."],
+           ["Day 9","mp","Guided visit, then bus, train and road back to Cusco."],
+           ["Day 10","cusco","Trip ends after breakfast."]] },
+  { id: "andes", op: "G Adventures", name: "Amazon to Andes with Machu Picchu by Train", short: "Amazon to Andes", price: 3300, priceNote: "estimate, confirm for August", days: 12, start: "Lima", end: "Lima",
+    style: "Classic", group: 16, meals: "18 meals", dates: "August dates to confirm",
+    amazon: "Yes, 2 nights", lake: "No", visits: "One", trek: "Optional one-day hike, US$299", lodging: "Standard hotels, G Lodge Amazon",
+    url: "https://www.gadventures.com/trips/amazon-to-andes-with-machu-picchu-by-train/SPLP/",
+    hook: "The longest trip for close to the lowest price, with everyone on the same itinerary.",
+    good: ["Twelve days, three more than Classic Peru for similar money, so the pace in the Andes is slower.",
+           "The Maras salt pans and the circular terraces at Moray, which the other trips skip.",
+           "A women's weaving co-operative and a community-run restaurant in the Sacred Valley, both supported by G Adventures.",
+           "Two nights at G's own Amazon lodge: a night walk, a caiman-spotting cruise and trips to oxbow lakes with naturalist guides.",
+           "Lima to Lima with internal flights included, and the jungle comes last, so the trip ends warm and at low altitude."],
+    watch: ["Standard hotels, a step below Intrepid's Comfort level.", "Groups of up to 16, and some travel by public bus.",
+            "Only 2 dinners and 5 lunches included.", "August price not confirmed. The US list price ranges from $2,199 to $2,379 depending on date."],
+    nights: ["lima","cusco","cusco","valley","valley","aguas","cusco","cusco","amazon","amazon","lima"], approx: true,
+    plan: [["Day 1","lima","Arrive. Welcome meeting in the evening."],
+           ["Days 2 to 3","cusco","Fly to Cusco and settle in at altitude."],
+           ["Day 4","valley","Sacred Valley tour, the weaving co-op and lunch at the community restaurant."],
+           ["Days 5 to 6","valley","Maras salt pans and Moray, then the train toward Machu Picchu."],
+           ["Day 7","mp","Guided visit to Machu Picchu."],
+           ["Day 8","cusco","Back in Cusco."],
+           ["Days 9 to 10","amazon","Fly to the jungle. Night walk, caiman-spotting cruise and oxbow lakes."],
+           ["Days 11 to 12","lima","Fly to Lima. Trip ends on day 12."]] },
+  { id: "natgeo", op: "G Adventures", name: "National Geographic Journeys: Machu Picchu and the Amazon", short: "Nat Geo Journeys", price: 4600, priceNote: "estimate from US$3,419", days: 10, start: "Lima", end: "Cusco",
+    style: "Upgraded", group: 16, meals: "About 19 for trekkers, fewer by train", dates: "Aug 7 to 16, Aug 14 to 23, Aug 21 to 30",
+    amazon: "Yes, 2 nights", lake: "No", visits: "One", trek: "Four-day Inca Trail or train", lodging: "Upgraded hotels, G Lodge Amazon",
+    url: "https://www.gadventures.com/trips/journeys-machu-picchu-and-the-amazon/8250/",
+    hook: "The closest rival to Inca Encounter, for a little less, with better hotels than G's standard trips.",
+    good: ["The same trek-or-train choice as Inca Encounter: four days on the Inca Trail with guide, cook and porters, or the train.",
+           "By train you get a night in Aguas Calientes before visiting Machu Picchu.",
+           "Extras the others lack: an evening at the Cusco Planetarium and a visit to the Potato Park near Pisac, where communities grow hundreds of native varieties.",
+           "Upgraded hotels and an arrival transfer, plus two nights at G's Amazon lodge."],
+    watch: ["By train, only breakfast is included on days 6 to 9.", "Groups of up to 16, against 12 on Intrepid.",
+            "Ends in Cusco, and the flight back to Lima is not included.", "Price is converted from the US list price and has no August discount showing."],
+    nights: ["lima","amazon","amazon","cusco","valley","cusco","cusco","aguas","cusco"], approx: true, approxNote: "Shown for the train option.",
+    plan: [["Day 1","lima","Arrive, with an airport transfer. Welcome meeting in the evening."],
+           ["Days 2 to 3","amazon","Fly to the jungle for two nights at G Lodge Amazon."],
+           ["Days 4 to 5","valley","Cusco and the Sacred Valley: a guided tour, the Potato Park, the community restaurant and the planetarium."],
+           ["Days 6 to 8","cusco","Walkers set out on the Inca Trail. By train: two nights in Cusco, then one in Aguas Calientes."],
+           ["Day 9","mp","Guided visit to Machu Picchu, then back to Cusco."],
+           ["Day 10","cusco","Trip ends."]] }
+];
+
+const $ = (id) => document.getElementById(id);
+const money = (n) => "$" + Math.round(n).toLocaleString("en-CA");
+const metres = (n) => n.toLocaleString("en-CA") + " m";
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const MAX_ALT = 4200;
+let current = TRIPS[0];
+
+// ---------- picker ----------
+function buildPicker() {
+  $("picker").innerHTML = TRIPS.map((t) =>
+    `<button type="button" data-id="${t.id}" aria-pressed="${t === current}">${esc(t.short)}<span>${esc(t.op)}, ${t.days} days, ${money(t.price)}</span></button>`).join("");
+  $("picker").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    current = TRIPS.find((t) => t.id === b.dataset.id);
+    $("picker").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    drawTerraces(); drawTrip();
+  });
+}
+
+// ---------- altitude terraces ----------
+function drawTerraces() {
+  const t = current, n = t.nights.length;
+  const cols = `repeat(${n}, minmax(0, 1fr))`;
+  const lines = [0, 1000, 2000, 3000, 4000].map((v) =>
+    `<div class="grid-line" style="bottom:${(v / MAX_ALT) * 100}%"><span>${v.toLocaleString("en-CA")}</span></div>`).join("") +
+    "";
+  const ref = `<div class="grid-line ref" style="bottom:${(2500 / MAX_ALT) * 100}%"></div>`;
+  const bars = t.nights.map((k, i) => {
+    const p = PLACES[k];
+    return `<button type="button" class="bar ${p.region}" data-i="${i}" aria-pressed="false" style="height:${(p.alt / MAX_ALT) * 100}%" aria-label="Night ${i + 1}: ${esc(p.name)}, ${metres(p.alt)}"></button>`;
+  }).join("");
+  $("plotArea").innerHTML = lines + `<div class="bars" style="grid-template-columns:${cols}">${bars}</div>` + ref;
+
+  // labels: one per run of consecutive nights in the same place
+  let runs = "", i = 0;
+  while (i < n) { let j = i; while (j + 1 < n && t.nights[j + 1] === t.nights[i]) j++;
+    runs += `<span style="grid-column:${i + 1} / ${j + 2}">${esc(PLACES[t.nights[i]].short)}</span>`; i = j + 1; }
+  $("runs").style.gridTemplateColumns = cols; $("runs").innerHTML = runs;
+  $("nights").style.gridTemplateColumns = cols;
+  $("nights").innerHTML = t.nights.map((_, k) => `<span>${k + 1}</span>`).join("");
+  $("terraceTitle").textContent = `${t.short}: where you sleep, night by night`;
+
+  const note = [t.approx ? "Outline only. The order of nights is inferred from the tour page, so treat the shape as approximate." : "", t.approxNote || ""].filter(Boolean).join(" ");
+  $("approx").hidden = !note; $("approx").textContent = note;
+
+  const pick = (idx) => {
+    const p = PLACES[t.nights[idx]];
+    $("plotArea").querySelectorAll(".bar").forEach((b) => b.setAttribute("aria-pressed", Number(b.dataset.i) === idx));
+    $("readout").innerHTML = `<strong>Night ${idx + 1}: ${esc(p.name)}, ${metres(p.alt)}.</strong> ${esc(p.regionName)}. ${esc(p.august)}`;
+  };
+  $("plotArea").querySelectorAll(".bar").forEach((b) => {
+    const idx = Number(b.dataset.i);
+    b.addEventListener("click", () => pick(idx));
+    b.addEventListener("mouseenter", () => pick(idx));
+    b.addEventListener("focus", () => pick(idx));
+  });
+  // start on the highest night: it is the one that matters for acclimatising
+  const alts = t.nights.map((k) => PLACES[k].alt);
+  pick(alts.indexOf(Math.max(...alts)));
+}
+
+// ---------- trip detail ----------
+function drawTrip() {
+  const t = current;
+  const highest = Math.max(...t.nights.map((k) => PLACES[k].alt));
+  $("tripDetail").innerHTML = `
+    <div>
+      <h3>${esc(t.name)}</h3>
+      <p class="by">${esc(t.op)}. ${esc(t.start)} to ${esc(t.end)}. ${esc(t.dates)}.</p>
+      <p>${esc(t.hook)}</p>
+      <div class="facts">
+        <div><b>${money(t.price)}</b>per person${t.priceNote ? ", " + esc(t.priceNote) : ""}</div>
+        <div><b>${t.days} days</b>${money(t.price / t.days)} a day</div>
+        <div><b>${metres(highest)}</b>highest night</div>
+        <div><b>Up to ${t.group}</b>in the group</div>
+        <div><b>${esc(t.style)}</b>comfort level</div>
+        <div><b>${esc(t.meals.split(" ")[0] === "About" ? "About 19" : t.meals.split(" ")[0])}</b>${esc(t.meals.replace(/^(About )?\d+ /, ""))}</div>
+      </div>
+      <h4>What makes it interesting</h4>
+      <ul>${t.good.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>
+      <h4>What to weigh</h4>
+      <ul>${t.watch.map((g) => `<li>${esc(g)}</li>`).join("")}</ul>
+      <p class="small"><a href="${t.url}">See this trip on the ${esc(t.op)} site</a></p>
+    </div>
+    <div>
+      <h4>${t.approx ? "Route outline" : "Day by day"}</h4>
+      <ol class="days">${t.plan.map(([d, k, txt]) => `<li><b>${esc(d)}</b><span><strong>${esc(PLACES[k].name)}.</strong> ${esc(txt)}</span></li>`).join("")}</ol>
+    </div>`;
+}
+
+// ---------- compare table ----------
+function drawCompare() {
+  const rows = [
+    ["Price each", (t) => `<td class="n">${money(t.price)}${t.priceNote ? `<br><small class="muted" style="font-weight:500">${esc(t.priceNote)}</small>` : ""}</td>`],
+    ["Length", (t) => `<td class="n">${t.days} days</td>`],
+    ["Per day", (t) => `<td class="n">${money(t.price / t.days)}</td>`],
+    ["Route", (t) => `<td>${esc(t.start)} to ${esc(t.end)}</td>`],
+    ["Amazon", (t) => `<td>${esc(t.amazon)}</td>`],
+    ["Lake Titicaca", (t) => `<td>${esc(t.lake)}</td>`],
+    ["Machu Picchu visits", (t) => `<td>${esc(t.visits)}</td>`],
+    ["Hiking", (t) => `<td>${esc(t.trek)}</td>`],
+    ["Where you stay", (t) => `<td>${esc(t.lodging)}</td>`],
+    ["Meals included", (t) => `<td>${esc(t.meals)}</td>`],
+    ["Group size", (t) => `<td>Up to ${t.group}</td>`],
+    ["August departures", (t) => `<td>${esc(t.dates)}</td>`]
+  ];
+  $("compareTable").innerHTML =
+    `<thead><tr><th scope="col"><span class="muted" style="font-weight:500">&nbsp;</span></th>${TRIPS.map((t) => `<th scope="col">${esc(t.short)}<small>${esc(t.op)}</small></th>`).join("")}</tr></thead>` +
+    `<tbody>${rows.map(([label, cell]) => `<tr><th scope="row">${label}</th>${TRIPS.map(cell).join("")}</tr>`).join("")}</tbody>`;
+}
+
+// ---------- places ----------
+function drawPlaces() {
+  const order = ["lima", "amazon", "cusco", "valley", "aguas", "mp", "puno"];
+  $("placeList").innerHTML = order.map((k) => {
+    const p = PLACES[k];
+    const who = TRIPS.filter((t) => t.nights.includes(k) || t.plan.some((d) => d[1] === k)).map((t) => t.short);
+    const whoTxt = who.length === TRIPS.length ? "All five trips" : who.join(", ");
+    return `<article class="place">
+      <div>
+        <h3>${esc(p.name)}</h3>
+        <div class="alt num">${p.alt.toLocaleString("en-CA")} <small>metres</small></div>
+        <div class="tag"><i class="sw ${p.region}"></i>${esc(p.regionName)}</div>
+      </div>
+      <div>
+        <p>${esc(p.why)}</p>
+        <p>${esc(p.look)}</p>
+        <p class="see"><b>In August:</b> ${esc(p.august)}</p>
+        <p class="see"><b>On:</b> ${esc(whoTxt)}</p>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+// ---------- cost ----------
+function drawCost() {
+  const people = Math.max(1, Number($("cPeople").value) || 0);
+  const flight = Math.max(0, Number($("cFlight").value) || 0);
+  const hop = Math.max(0, Number($("cHop").value) || 0);
+  const rows = TRIPS.map((t) => {
+    const extra = t.end === "Cusco" ? hop : 0;
+    const each = t.price + flight + extra;
+    return { t, extra, each, total: each * people };
+  }).sort((a, b) => a.total - b.total);
+  const max = Math.max(...rows.map((r) => r.total));
+  $("costList").innerHTML = rows.map((r) => `
+    <li>
+      <div class="row"><span class="name">${esc(r.t.short)} <span class="muted" style="font-weight:500">${esc(r.t.op)}</span></span>
+        <span class="tot">${money(r.total)} <small>${money(r.each)} each</small></span></div>
+      <div class="track"><div class="fill" style="width:${(r.total / max) * 100}%"></div></div>
+      <div class="parts">Tour ${money(r.t.price)}, flights ${money(flight)}${r.extra ? `, Cusco to Lima ${money(r.extra)}` : ""}${r.t.priceNote && r.t.op === "G Adventures" ? ". Tour price is an estimate." : ""}</div>
+    </li>`).join("");
+}
+
+// ---------- decide ----------
+const VERDICTS = {
+  "no-cost":   ["andes",   "Twelve days with everyone together, the jungle and the salt pans, for the lowest all-in cost alongside Classic Peru. Choose Classic Peru instead if Lake Titicaca appeals more than the Amazon."],
+  "no-mid":    ["andes",   "Nobody is hiking, so the trek-or-train trips leave you with idle days in Cusco. This one keeps the group moving together. Check the hotel standard before booking, since it is the one real compromise."],
+  "no-lux":    ["premium", "Two visits to Machu Picchu, the Inkaterra lodges and no idle days. It is the best trip here if the budget allows."],
+  "day-cost":  ["andes",   "Add the optional one-day Inca Trail hike, from US$299, for those who want it. The others take the train and everyone meets at Machu Picchu."],
+  "day-mid":   ["andes",   "The one-day Inca Trail hike is an add-on from US$299, so the walkers get the Sun Gate arrival without three nights of camping."],
+  "day-lux":   ["premium", "Premium Peru offers the one-day Inca Trail hike as an extra at US$465, on top of the two site visits."],
+  "multi-cost":["natgeo",  "The four-day Inca Trail with guide, cook and porters, at a few hundred dollars less than Inca Encounter. Those not hiking take the train and get a night in Aguas Calientes."],
+  "multi-mid": ["inca",    "A smaller group of up to 12 and a choice of two treks, including the quieter Quarry Trail. Those not hiking should expect two free days in Cusco."],
+  "multi-lux": ["inca",    "Premium Peru has no multi-day trek, so Inca Encounter is the most comfortable trip that does. Its hotels are a level below Premium's."]
+};
+function drawVerdict() {
+  const f = new FormData($("decideForm"));
+  const [id, why] = VERDICTS[`${f.get("trek")}-${f.get("pri")}`];
+  const t = TRIPS.find((x) => x.id === id);
+  $("verdict").innerHTML = `<h3>${esc(t.name)}</h3><p>${esc(t.op)}, ${t.days} days, ${money(t.price)} each before flights.</p><p>${esc(why)}</p>`;
+}
+
+buildPicker(); drawTerraces(); drawTrip(); drawCompare(); drawPlaces(); drawCost(); drawVerdict();
+["cPeople", "cFlight", "cHop"].forEach((id) => $(id).addEventListener("input", drawCost));
+$("decideForm").addEventListener("change", drawVerdict);
+</script>
+</body>
+</html>
