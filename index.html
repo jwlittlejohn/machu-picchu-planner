@@ -190,6 +190,8 @@ td.n { font-family: var(--display); font-variant-numeric: tabular-nums; font-wei
 
 .two { display: grid; gap: 2rem; }
 @media (min-width: 52rem) { .two { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+.three { display: grid; gap: 1.75rem; }
+@media (min-width: 52rem) { .three { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
 .check { padding-left: 1.2rem; margin: 0.5rem 0 0; }
 .check li { margin-bottom: 0.6rem; max-width: 60ch; }
 footer { padding: 2.5rem 0 4rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 0.9375rem; }
@@ -201,11 +203,12 @@ footer ul { padding-left: 1.2rem; }
 <header class="top">
   <div class="wrap">
     <h1>Five ways to reach Machu Picchu</h1>
-    <p class="lede">Six adults, August 2027, flying from Toronto and Ottawa. Pick a trip to see where it goes, how high you sleep each night, and what makes it different.</p>
+    <p class="lede">Six adults, August 2027, flying from Toronto and Ottawa. Pick a trip to see where it goes and what makes it different.</p>
     <nav class="jump" aria-label="Sections">
       <a href="#trips">The trips</a>
       <a href="#compare">Side by side</a>
       <a href="#places">The places</a>
+      <a href="#altitude">Altitude</a>
       <a href="#cost">Cost for six</a>
       <a href="#decide">Help us decide</a>
       <a href="#booking">Before booking</a>
@@ -219,28 +222,6 @@ footer ul { padding-left: 1.2rem; }
     <p class="intro">Three from Intrepid, two from G Adventures. All are small-group tours with a leader, internal flights and a guided visit to Machu Picchu.</p>
 
     <div class="picker" id="picker" role="group" aria-label="Choose a trip"></div>
-
-    <div class="terrace-card">
-      <div class="terrace-head">
-        <h3 id="terraceTitle">Where you sleep, night by night</h3>
-        <p>Height of each bar is the altitude of that night's bed.</p>
-      </div>
-      <ul class="legend" aria-label="Bar colours">
-        <li><i class="sw coast"></i>Pacific coast</li>
-        <li><i class="sw jungle"></i>Amazon lowlands</li>
-        <li><i class="sw highland"></i>Andes</li>
-        <li><i class="sw lake"></i>Lake Titicaca</li>
-      </ul>
-      <div class="plot">
-        <div class="plot-area" id="plotArea"></div>
-        <div class="runs" id="runs" aria-hidden="true"></div>
-        <div class="nights" id="nights" aria-hidden="true"></div>
-        <p class="axis-note">Night of the trip. Altitude in metres. Dashed line: about 2,500 m, where most people start to feel the altitude.</p>
-      </div>
-      <p class="readout" id="readout" aria-live="polite"></p>
-      <p class="approx">Every trip here flies straight up to Cusco at about 3,400 m, so expect a slow first day or two on any of them. Nights at sea level or in the jungle beforehand do not help the body adjust.</p>
-      <p class="approx" id="approx" hidden></p>
-    </div>
 
     <article class="trip" id="tripDetail" aria-live="polite"></article>
   </div>
@@ -261,6 +242,62 @@ footer ul { padding-left: 1.2rem; }
     <h2>The places</h2>
     <p class="intro">Seven stops across four very different landscapes. August is the dry season in the Andes and the Amazon, and midwinter on the coast.</p>
     <div class="places" id="placeList"></div>
+  </div>
+</section>
+
+<section class="block" id="altitude">
+  <div class="wrap">
+    <h2>Altitude</h2>
+    <p class="intro">Every trip flies straight up to Cusco at about 3,400 m. Most people notice it for a day or two and few are seriously affected. It is a reason to prepare, not a reason to choose one trip over another.</p>
+    <div class="three">
+      <div>
+        <h3>What to expect</h3>
+        <ul class="check">
+          <li>A headache, tiredness, broken sleep and being short of breath on stairs for the first day or two. It usually passes.</li>
+          <li>The body does most of its adjusting in the first three to five days.</li>
+          <li>If symptoms get worse instead of better, tell the trip leader. Going lower is the fix.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What helps</h3>
+        <ul class="check">
+          <li><strong>A travel clinic visit</strong> a couple of months ahead. Ask about acetazolamide, which the CDC suggests considering when a quick ascent can't be avoided. Bring a list of everything you take, including sleep aids.</li>
+          <li><strong>An easy first day in Cusco:</strong> walk slowly, drink water, and skip alcohol for the first couple of days.</li>
+          <li><strong>A heart or lung condition</strong> is worth raising with your own doctor before booking.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Where the trips differ</h3>
+        <ul class="check">
+          <li>The first night in Cusco is the same on all five. Time in Lima or the jungle beforehand does not help the body adjust.</li>
+          <li>Classic Peru adds two nights at 3,810 m by Lake Titicaca, after four nights already spent in the Andes.</li>
+          <li>Anyone trekking crosses a pass at 4,200 m on the Inca Trail or 4,450 m on the Quarry Trail.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:1.5rem">General information drawn from the <a href="https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html">CDC Yellow Book chapter on altitude</a>. It does not replace advice from a clinic that knows your health.</p>
+
+    <div class="picker" id="picker2" role="group" aria-label="Choose a trip to chart" style="margin-top:1.5rem"></div>
+    <div class="terrace-card">
+      <div class="terrace-head">
+        <h3 id="terraceTitle">Where you sleep, night by night</h3>
+        <p>Height of each bar is the altitude of that night's bed.</p>
+      </div>
+      <ul class="legend" aria-label="Bar colours">
+        <li><i class="sw coast"></i>Pacific coast</li>
+        <li><i class="sw jungle"></i>Amazon lowlands</li>
+        <li><i class="sw highland"></i>Andes</li>
+        <li><i class="sw lake"></i>Lake Titicaca</li>
+      </ul>
+      <div class="plot">
+        <div class="plot-area" id="plotArea"></div>
+        <div class="runs" id="runs" aria-hidden="true"></div>
+        <div class="nights" id="nights" aria-hidden="true"></div>
+        <p class="axis-note">Night of the trip. Altitude in metres. Dashed line: about 2,500 m, where most people start to feel the altitude.</p>
+      </div>
+      <p class="readout" id="readout" aria-live="polite"></p>
+      <p class="approx" id="approx" hidden></p>
+    </div>
   </div>
 </section>
 
@@ -326,7 +363,7 @@ footer ul { padding-left: 1.2rem; }
           <li><strong>Six seats on one departure</strong> is the real constraint. Intrepid groups stop at 12. Phone rather than booking online, so all six are held together, and ask about a group rate.</li>
           <li><strong>Confirm the August price</strong> for the two G Adventures trips on the Canadian site. The figures here are converted from US list prices.</li>
           <li><strong>Trekkers:</strong> Inca Trail permits are limited and not guaranteed. Book early and name the trekkers when booking.</li>
-          <li><strong>Health:</strong> see a travel clinic a couple of months ahead about altitude and the Amazon. Travel insurance is compulsory on G Adventures.</li>
+          <li><strong>Health:</strong> see a travel clinic a couple of months ahead about <a href="#altitude">altitude</a> and the Amazon. Travel insurance is compulsory on G Adventures.</li>
           <li><strong>Passports</strong> are needed for Machu Picchu tickets and Inca Trail permits. Use the same passport you'll travel on.</li>
         </ul>
       </div>
@@ -496,13 +533,17 @@ let current = TRIPS[0];
 
 // ---------- picker ----------
 function buildPicker() {
-  $("picker").innerHTML = TRIPS.map((t) =>
+  const boxes = [$("picker"), $("picker2")];
+  const html = TRIPS.map((t) =>
     `<button type="button" data-id="${t.id}" aria-pressed="${t === current}">${esc(t.short)}<span>${esc(t.op)}, ${t.days} days, ${money(t.price)}</span></button>`).join("");
-  $("picker").addEventListener("click", (e) => {
-    const b = e.target.closest("button"); if (!b) return;
-    current = TRIPS.find((t) => t.id === b.dataset.id);
-    $("picker").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x === b));
-    drawTerraces(); drawTrip();
+  boxes.forEach((box) => {
+    box.innerHTML = html;
+    box.addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      current = TRIPS.find((t) => t.id === b.dataset.id);
+      boxes.forEach((bx) => bx.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.id === current.id)));
+      drawTerraces(); drawTrip();
+    });
   });
 }
 

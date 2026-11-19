@@ -3,9 +3,9 @@
 A single-page planner comparing five small-group Peru trips for six adults travelling in August 2027 from Toronto and Ottawa.
 
 - **The trips:** three from Intrepid (Classic Peru, Premium Peru, Inca Encounter) and two from G Adventures (Amazon to Andes with Machu Picchu by Train; National Geographic Journeys: Machu Picchu and the Amazon).
-- **Altitude terraces:** a bar for each night of the selected trip, showing how high you sleep.
 - **Side by side:** price, length, route, what's included.
 - **The places:** Lima, the Amazon, Cusco, the Sacred Valley, Aguas Calientes, Machu Picchu and Lake Titicaca.
+- **Altitude:** what to expect, what helps, and a bar for each night of the selected trip showing how high you sleep.
 - **Cost for six:** tour plus flights, editable as real quotes come in.
 - **Help us decide:** two questions that narrow it to one trip.
 
